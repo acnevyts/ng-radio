@@ -1,7 +1,5 @@
-import {Subject}    from 'rxjs/Subject';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
+import {Observable, Subject}    from 'rxjs';
+import {map, filter}    from 'rxjs/operators';
 
 interface RadioMessage {
   key:   string;
@@ -60,9 +58,8 @@ export class NgRadio {
 
   on<T>(key: string): Observable<T> {
     return this._eventBus.asObservable()
-      .filter((event) => {
+      .pipe(filter((event) => {
         return this.keyMatch(event.key,key);
-      })
-      .map(event => <T>event.data);
+      }), map(event => <T>event.data));
   }
 }

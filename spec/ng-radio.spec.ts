@@ -2,7 +2,6 @@ import * as uuid from 'uuid';
 import { NgRadio } from '../dist/ng_radio';
 
 describe('NgRadio works as expected', () => {
-
     const generateMessages = ()=>{
         return {
             ch1: uuid.v4(),

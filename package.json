@@ -9,9 +9,9 @@
     "build": "./node_modules/.bin/tsc -d ./src/ng_radio.ts --lib es6 --outDir ./dist",
     "test": "./node_modules/.bin/tsc ./spec/*.ts; ./node_modules/.bin/jasmine-node ./spec/"
   },
-  "repository":{
-    "type":"git",
-    "url":"git+https://github.com/govorov/ng-radio.git"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govorov/ng-radio.git"
   },
   "keywords": [
     "angular2",
@@ -21,9 +21,12 @@
   "author": "Stanislav E. Govorov",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "^5.0.0-rc.3"
+    "rxjs": "^6.3.3"
   },
   "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "@types/jasmine": "^2.8.9",
+    "@types/node": "^10.11.7",
     "jasmine": "^2.5.2",
     "jasmine-node": "^1.14.5",
     "typescript": "^2.0.10",

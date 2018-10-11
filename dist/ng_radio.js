@@ -1,11 +1,11 @@
 "use strict";
-var Subject_1 = require('rxjs/Subject');
-require('rxjs/add/operator/filter');
-require('rxjs/add/operator/map');
-var NgRadio = (function () {
+exports.__esModule = true;
+var rxjs_1 = require("rxjs");
+var operators_1 = require("rxjs/operators");
+var NgRadio = /** @class */ (function () {
     function NgRadio() {
         this.separator = ':';
-        this._eventBus = new Subject_1.Subject();
+        this._eventBus = new rxjs_1.Subject();
     }
     NgRadio.prototype.keyMatch = function (key, wildcard) {
         var w = '*';
@@ -43,10 +43,9 @@ var NgRadio = (function () {
     NgRadio.prototype.on = function (key) {
         var _this = this;
         return this._eventBus.asObservable()
-            .filter(function (event) {
+            .pipe(operators_1.filter(function (event) {
             return _this.keyMatch(event.key, key);
-        })
-            .map(function (event) { return event.data; });
+        }), operators_1.map(function (event) { return event.data; }));
     };
     return NgRadio;
 }());
